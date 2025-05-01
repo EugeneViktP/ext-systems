@@ -18,6 +18,7 @@
                 <version>3.4.0</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <outputDirectory>C:\Program Files\Java\apache-tomcat-10.1.40\webapps</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

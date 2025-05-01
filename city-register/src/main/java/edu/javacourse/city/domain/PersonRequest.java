@@ -8,12 +8,8 @@ public class PersonRequest {
     private String surName;
     private String givenName;
     private String patronymic;
-//    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate dateOfBirth;
     private int streetCode;
-
-
-
     private String building;
     private String extension;
     private String apartment;
