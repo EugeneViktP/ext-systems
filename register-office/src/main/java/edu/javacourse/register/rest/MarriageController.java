@@ -12,6 +12,9 @@ public class MarriageController {
 
     private MarriageManager marriageManager;
 
+    public void setMarriageManager(MarriageManager marriageManager) {
+        this.marriageManager = marriageManager;
+    }
 
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
 

@@ -17,6 +17,12 @@ public class MarriageDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
     private EntityManager entityManager;
 
+    private String test;
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
     public MarriageDao() {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("myPersistenceUnit");
@@ -25,13 +31,7 @@ public class MarriageDao {
 
 
     public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("findMarriageCertificate is called");
-        List<MarriageCertificate> resultList = entityManager.createQuery(
-                        "SELECT mc FROM MarriageCertificate mc WHERE mc.number = :number",
-                        MarriageCertificate.class)
-                .setParameter("number", request.getMarriageCertificateNumber())
-                .getResultList();
-
-        return resultList.isEmpty() ? null : resultList.get(0);
+        LOGGER.info("findMarriageCertificate is called: {}", test);
+        return null;
     }
 }
