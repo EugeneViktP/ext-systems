@@ -21,13 +21,13 @@ public class PersonDaoTest {
             System.out.println("Class: " + p.getClass().getName());
             System.out.println("Passport size: " + p.getPassports().size());
             System.out.println("Birth certificates: " + p.getBirthCertificate());
-            if (p instanceof PersonMale) {
-                System.out.println("Birth Cert Size: " + ((PersonMale) p).getBirthCertificates().size());
-                System.out.println("Marriage Cert Size: " + ((PersonMale) p).getMarriageCertificates().size());
-            } else {
-                System.out.println("Birth Cert Size: " + ((PersonFemale) p).getBirthCertificates().size());
-                System.out.println("Marriage Cert Size: " + ((PersonFemale) p).getMarriageCertificates().size());
-            }
+//            if (p instanceof PersonMale) {
+//                System.out.println("Birth Cert Size: " + ((PersonMale) p).getBirthCertificates().size());
+//                System.out.println("Marriage Cert Size: " + ((PersonMale) p).getMarriageCertificates().size());
+//            } else {
+//                System.out.println("Birth Cert Size: " + ((PersonFemale) p).getBirthCertificates().size());
+//                System.out.println("Marriage Cert Size: " + ((PersonFemale) p).getMarriageCertificates().size());
+//            }
         });
     }
 }
