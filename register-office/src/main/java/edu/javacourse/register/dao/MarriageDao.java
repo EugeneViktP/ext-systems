@@ -9,25 +9,30 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class MarriageDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
     private EntityManager entityManager;
 
+    @Value("${test.value}")
     private String test;
 
     public void setTest(String test) {
         this.test = test;
     }
 
-    public MarriageDao() {
-        EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("myPersistenceUnit");
-        entityManager = factory.createEntityManager();
-    }
+//    public MarriageDao() {
+//        EntityManagerFactory factory = Persistence
+//                .createEntityManagerFactory("myPersistenceUnit");
+//        entityManager = factory.createEntityManager();
+//    }
 
 
     public MarriageCertificate findMarriageCertificate(MarriageRequest request) {

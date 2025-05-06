@@ -7,13 +7,8 @@ import java.util.List;
 
 public class PersonDao {
 
+    @PersistenceContext
     private EntityManager entityManager;
-
-    public PersonDao() {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("myPersistenceUnit");
-        entityManager = factory.createEntityManager();
-    }
-
 
     public List<Person> findPersons() {
         TypedQuery<Person> query = entityManager.createNamedQuery(("Person.findPersons"), Person.class);
