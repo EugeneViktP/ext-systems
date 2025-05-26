@@ -34,18 +34,25 @@ public class MarriageManager {
     public MarriageResponse findMarriageCertificate (MarriageRequest request) {
 
         LOGGER.info("findMarriageCertificate is called");
-        MarriageCertificate cert = marriageDao.findMarriageCertificate(request);
+//        MarriageCertificate cert = marriageDao.findMarriageCertificate(request);
 
         personDao.findPersons();
 
+        personDao.addPerson(getPerson());
+        personDao.addPerson(getPerson());
+        personDao.addPerson(getPerson());
+
+
+
+        return new MarriageResponse();
+    }
+
+    private static Person getPerson() {
         Person m = new PersonMale();
         m.setFirstName("1");
         m.setLastName("2");
         m.setPatronymic("3");
         m.setDateOfBirth(LocalDate.of(1991, 3, 12));
-
-        personDao.addPerson(m);
-
-        return new MarriageResponse();
+        return m;
     }
 }
