@@ -13,7 +13,7 @@ public class PersonDao {
 
     public List<Person> findPersons() {
         TypedQuery<Person> query = entityManager.createNamedQuery(("Person.findPersons"), Person.class);
-        query.setParameter("personId", 2L);
+//        query.setParameter("personId", 2L);
         return query.getResultList();
     }
 
