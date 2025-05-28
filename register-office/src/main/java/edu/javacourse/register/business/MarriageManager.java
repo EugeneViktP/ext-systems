@@ -44,15 +44,18 @@ public class MarriageManager {
         MarriageCertificate mc = getMarriageCertificate();
         marriageDao.saveAndFlush(mc);
 //        marriageDao.findAll();
-        marriageDao.findById(1L);
+//        marriageDao.findById(1L);
 
+        List<MarriageCertificate> list = marriageDao.findByNumberContaining("876");
+        list.forEach(System.out::println);
+        list.forEach(m -> LOGGER.info("MC:{}", m.getMarriageCertificateId()));
 
         return new MarriageResponse();
     }
     private MarriageCertificate getMarriageCertificate() {
         MarriageCertificate mc = new MarriageCertificate();
         mc.setIssueDate(LocalDate.now());
-        mc.setNumber("12345");
+        mc.setNumber("98765");
         mc.setActive(true);
         List<Person> persons = personDao.findPersons();
 

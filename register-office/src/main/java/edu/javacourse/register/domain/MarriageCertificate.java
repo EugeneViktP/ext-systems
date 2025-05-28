@@ -82,4 +82,17 @@ public class MarriageCertificate {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
+
+    @Override
+    public String toString() {
+        return "MarriageCertificate{" +
+                "marriageCertificateId=" + marriageCertificateId +
+                ", number='" + number + '\'' +
+                ", issueDate=" + issueDate +
+                ", husband=" + husband +
+                ", wife=" + wife +
+                ", active=" + active +
+                ", endDate=" + endDate +
+                '}';
+    }
 }
