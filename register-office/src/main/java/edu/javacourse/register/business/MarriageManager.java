@@ -31,6 +31,10 @@ public class MarriageManager {
     @Autowired
     private PersonDao personDao;
 
+    public MarriageManager() {
+        LOGGER.info("MarriageManager created");
+    }
+
 
     @Transactional()
     public MarriageResponse findMarriageCertificate (MarriageRequest request) {
@@ -38,8 +42,8 @@ public class MarriageManager {
         LOGGER.info("findMarriageCertificate is called");
 
 
-        personDao.addPerson(getPerson(1));
-        personDao.addPerson(getPerson(2));
+        personDao.save(getPerson(1));
+        personDao.save(getPerson(2));
 
         MarriageCertificate mc = getMarriageCertificate();
         marriageDao.saveAndFlush(mc);
@@ -49,16 +53,19 @@ public class MarriageManager {
         List<MarriageCertificate> list = marriageDao.findByNumber("12345");
         list.forEach(m -> LOGGER.info("MC:{}", m.getMarriageCertificateId()));
         LOGGER.info("----------->>>>>>>>>>>");
-
         List<MarriageCertificate> list2 = marriageDao.findByNum("98765");
         list2.forEach(m -> LOGGER.info("MC:{}", m.getMarriageCertificateId()));
+
+        LOGGER.info("----------->>>>>>>>>>>");
+        List<MarriageCertificate> list3 = marriageDao.findSomething("01928");
+        list3.forEach(m -> LOGGER.info("MC:{}", m.getMarriageCertificateId()));
 
         return new MarriageResponse();
     }
     private MarriageCertificate getMarriageCertificate() {
         MarriageCertificate mc = new MarriageCertificate();
         mc.setIssueDate(LocalDate.now());
-        mc.setNumber("876");
+        mc.setNumber("01928");
         mc.setActive(true);
         List<Person> persons = personDao.findPersons();
 

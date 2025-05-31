@@ -1,26 +1,15 @@
 package edu.javacourse.register.dao;
 
 import edu.javacourse.register.domain.Person;
-import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class PersonDao {
+@Repository
+public interface PersonDao extends JpaRepository<Person, Long> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    List<Person> findPersons();
+//    Long addPerson(Person person);
 
-    public List<Person> findPersons() {
-        TypedQuery<Person> query = entityManager.createNamedQuery(("Person.findPersons"), Person.class);
-//        query.setParameter("personId", 2L);
-        return query.getResultList();
-    }
-
-
-    public Long addPerson(Person person) {
-        entityManager.persist(person);
-        entityManager.flush();
-        return person.getPersonId();
-    }
 }
